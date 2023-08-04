@@ -8,8 +8,8 @@ const CalculatorForm = (props) => {
     const [enteredExpectedReturn, setEnteredExpectedReturn] = useState('');
     const [enteredDuration, setEnteredDuration] = useState('');
 
-    const calculateHandler = (userInput) => {
-        userInput.preventDefault(); // Should be triggered when form is submitted
+    const calculateHandler = (event) => {
+        event.preventDefault(); // Should be triggered when form is submitted
 
         const calculatedData = {
             currentSavings: enteredSavings,
@@ -18,6 +18,7 @@ const CalculatorForm = (props) => {
             duration: enteredDuration
         };
 
+        //...
         console.log(calculatedData);
         setEnteredSavings('');
         setEnteredContribution('');
@@ -46,8 +47,25 @@ const CalculatorForm = (props) => {
         // do something with yearlyData ...
       };
 
-      const onCancelHandler = () => {
+      const resetHandler = () => {
+        //...
         console.log('Done');
+    };
+
+    const savingsChangeHandler = (event) => {
+        setEnteredSavings(event.target.value);
+    };
+
+    const contributionChangeHandler = (event) => {
+        setEnteredContribution(event.target.value);
+    };
+
+    const returnChangeHandler = (event) => {
+        setEnteredExpectedReturn(event.target.value);
+    };
+
+    const durationChangeHandler = (event) => {
+        setEnteredDuration(event.target.value);
     };
 
     return (
@@ -55,11 +73,19 @@ const CalculatorForm = (props) => {
             <div className={styles.inputGroup}>
                 <p>
                     <label htmlFor="current-savings">Current Savings ($)</label>
-                    <input type="number" id="current-savings" />
+                    <input 
+                        value={enteredSavings}
+                        type="number" 
+                        id="current-savings"
+                        onChange={savingsChangeHandler} />
                 </p>
                 <p>
                     <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
-                    <input type="number" id="yearly-contribution" />
+                    <input 
+                        value={enteredContribution}
+                        type="number" 
+                        id="yearly-contribution"
+                        onChange={contributionChangeHandler} />
                 </p>
             </div>
             <div className={styles.inputGroup}>
@@ -67,15 +93,23 @@ const CalculatorForm = (props) => {
                     <label htmlFor="expected-return">
                     Expected Interest (%, per year)
                     </label>
-                    <input type="number" id="expected-return" />
+                    <input 
+                        value={enteredExpectedReturn}
+                        type="number" 
+                        id="expected-return"
+                        onChange={returnChangeHandler} />
                 </p>
                 <p>
                     <label htmlFor="duration">Investment Duration (years)</label>
-                    <input type="number" id="duration" />
+                    <input 
+                        value={enteredDuration}
+                        type="number" 
+                        id="duration"
+                        onChange={durationChangeHandler} />
                 </p>
             </div>
                 <p className={styles.actions}>
-                <button onClick={onCancelHandler} type="reset" className={styles.buttonAlt}>
+                <button onClick={resetHandler} type="reset" className={styles.buttonAlt}>
                     Reset
                 </button>
                 <button type="submit" className={styles.button}>
