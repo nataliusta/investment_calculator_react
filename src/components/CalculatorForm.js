@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './CalculatorForm.module.css';
 
 const CalculatorForm = (props) => {
 
+    const [enteredSavings, setEnteredSavings] = useState('');
+    const [enteredContribution, setEnteredContribution] = useState('');
+    const [enteredExpectedReturn, setEnteredExpectedReturn] = useState('');
+    const [enteredDuration, setEnteredDuration] = useState('');
+
     const calculateHandler = (userInput) => {
-        userInput.preventDefault();
-        // Should be triggered when form is submitted
-        // You might not directly want to bind it to the submit event on the form though...
-    
+        userInput.preventDefault(); // Should be triggered when form is submitted
+
+        const calculatedData = {
+            currentSavings: enteredSavings,
+            yearlyContribution: enteredContribution,
+            expectedReturn: enteredExpectedReturn,
+            duration: enteredDuration
+        };
+
+        console.log(calculatedData);
+        setEnteredSavings('');
+        setEnteredContribution('');
+        setEnteredExpectedReturn('');
+        setEnteredDuration('');
+
         const yearlyData = []; // per-year results
     
         let currentSavings = +userInput['current-savings']; // feel free to change the shape of this input object!
@@ -20,8 +36,7 @@ const CalculatorForm = (props) => {
           const yearlyInterest = currentSavings * expectedReturn;
           currentSavings += yearlyInterest + yearlyContribution;
 
-          yearlyData.push({
-            // feel free to change the shape of the data pushed to the array!
+          yearlyData.push({ // feel free to change the shape of the data pushed to the array!
             year: i + 1,
             yearlyInterest: yearlyInterest,
             savingsEndOfYear: currentSavings,
