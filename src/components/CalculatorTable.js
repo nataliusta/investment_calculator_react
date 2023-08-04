@@ -1,10 +1,9 @@
 import React from 'react';
-
-import styles from './CalculatorTabel.module.css';
+import styles from './CalculatorTable.module.css';
 
 const CalculatorTable = (props) => {
     return (
-        <table className="result">
+        <table className={styles.result}>
             <thead>
                 <tr>
                     <th>Year</th>

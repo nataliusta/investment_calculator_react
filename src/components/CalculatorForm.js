@@ -1,5 +1,4 @@
 import React from 'react';
-
 import styles from './CalculatorForm.module.css';
 
 const CalculatorForm = (props) => {
