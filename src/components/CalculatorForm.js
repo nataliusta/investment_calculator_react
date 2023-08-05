@@ -34,6 +34,7 @@ const CalculatorForm = (props) => {
                 <p>
                     <label htmlFor="current-savings">Current Savings ($)</label>
                     <input 
+                        value={userInput['current-savings']}
                         type="number" 
                         id="current-savings"
                         onChange={(event) => inputChangeHandler('current-savings', event.target.value)} />
@@ -41,6 +42,7 @@ const CalculatorForm = (props) => {
                 <p>
                     <label htmlFor="yearly-contribution">Yearly Savings ($)</label>
                     <input 
+                        value={userInput['yearly-contribution']}
                         type="number" 
                         id="yearly-contribution"
                         onChange={(event) => inputChangeHandler('yearly-contribution', event.target.value)} />
@@ -52,6 +54,7 @@ const CalculatorForm = (props) => {
                     Expected Interest (%, per year)
                     </label>
                     <input 
+                        value={userInput['expected-return']}
                         type="number" 
                         id="expected-return"
                         onChange={(event) => inputChangeHandler('expected-return', event.target.value)} />
@@ -59,6 +62,7 @@ const CalculatorForm = (props) => {
                 <p>
                     <label htmlFor="duration">Investment Duration (years)</label>
                     <input 
+                        value={userInput['duration']}
                         type="number" 
                         id="duration"
                         onChange={(event) => inputChangeHandler('duration', event.target.value)} />
