@@ -12,7 +12,9 @@ const UserInput = (props) => {
     const [userInput, setUserInput] = useState(initialUserInput);
 
     const submitHandler = (event) => {
-        event.preventDefault(); // Should be triggered when form is submitted 
+        event.preventDefault();
+
+        props.onCalculate(userInput);
     };
 
     const resetHandler = () => {
