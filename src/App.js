@@ -1,11 +1,13 @@
 import React from 'react';
-import CalculatorForm from './components/CalculatorForm';
+import UserInput from './components/UserInput';
 import CalculatorTable from './components/CalculatorTable';
 import CalculatorHeader from './components/CalculatorHeader';
 
 function App() {
 
-   //const yearlyData = []; // per-year results
+  /*const calculatedData = (userInput) => {
+
+   const yearlyData = []; // per-year results
     
         /*let currentSavings = +userInput['current-savings']; // feel free to change the shape of this input object!
         const yearlyContribution = +userInput['yearly-contribution']; // as mentioned: feel free to change the shape...
@@ -24,12 +26,13 @@ function App() {
             yearlyContribution: yearlyContribution,
           });
         }
-        // do something with yearlyData ...*/
+        // do something with yearlyData ...
+  };*/
 
   return (
     <div>
       <CalculatorHeader />
-      <CalculatorForm />
+      <UserInput />
       <CalculatorTable />
     </div>
   );
