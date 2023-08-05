@@ -1,31 +1,31 @@
 import React, { useState } from 'react';
 import styles from './CalculatorForm.module.css';
 
-const CalculatorForm = (props) => {
+const initialUserInput = {
+    'current-savings': 10000,
+    'yearly-contribution': 1200,
+    'expected-return': 7,
+    duration: 10
+};
 
-    /*const [enteredSavings, setEnteredSavings] = useState('');
-    const [enteredContribution, setEnteredContribution] = useState('');
-    const [enteredExpectedReturn, setEnteredExpectedReturn] = useState('');
-    const [enteredDuration, setEnteredDuration] = useState('');*/
+const CalculatorForm = (props) => {
+    const [userInput, setUserInput] = useState(initialUserInput);
 
     const submitHandler = (event) => {
-        event.preventDefault(); // Should be triggered when form is submitted
-
-        /*const calculatedData = {
-            currentSavings: enteredSavings,
-            yearlyContribution: enteredContribution,
-            expectedReturn: enteredExpectedReturn,
-            duration: enteredDuration
-        };*/
-
-        
+        event.preventDefault(); // Should be triggered when form is submitted 
     };
 
     const resetHandler = () => {
+        setUserInput(initialUserInput);
     };
 
     const inputChangeHandler = (input, value) => {
-        console.log(input, value);
+        setUserInput((prevInput) => {
+            return {
+                ...prevInput,
+                [input]: value,
+            };
+        });
     }
 
     return (
